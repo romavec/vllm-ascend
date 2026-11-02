@@ -376,9 +376,6 @@ class NPUWorker(WorkerBase):
             used_bytes / GiB_bytes,
         )
 
-    def disconnect_kv_transfer_peers(self) -> None:
-        global_te.disconnect_all_peers()
-
     @serialized_sleep_transition
     def wake_up(self, tags: list[str] | None = None) -> None:
         reuse = (
